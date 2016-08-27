@@ -16,6 +16,7 @@
                     'type':'video',
                     'videoEmbeddable': 'true',
                     'regionCode' : 'US',
+                    'origin' : "https://www.youtube.com"
                     //Sharing this key in the hopes that it wont be abused
                     'key': config.youtube.key
                 }
