@@ -248,7 +248,7 @@
               }, function(error) {
                 console.log(error);
               });
-            }    
+            }
 
             if (typeof config.stock !== 'undefined' && config.stock.names.length) {
               registerRefreshInterval(getStock, 30);
@@ -282,7 +282,7 @@
 
             refreshRss();
             $interval(refreshRss, config.rss.refreshInterval * 60000);
-            
+
             updateNews();
             $interval(updateNews, 8000);  // cycle through news every 8 seconds
 
@@ -445,8 +445,27 @@
             });
 
             // Check the time
-            addCommand('time_show', function(task) {
+            /* addCommand('time_show', function(task) {
                  console.debug("It is", moment().format('h:mm:ss a'));
+            }); */
+
+            addCommand('time_show', function(task) {
+              var currentTime = new Date()
+              var hours = currentTime.getHours()
+              var minutes = currentTime.getMinutes()
+              var t = "The time is "
+              if (minutes < 10){
+                minutes = "0" + minutes
+              }
+              t += hours + ":" + minutes + " "
+              if (hours > 11){
+                t += "PM"
+              } else {
+                t += "AM"
+              }​
+              var msg = new SpeechSynthesisUtterance(t);
+              window.speechSynthesis.speak(msg);
+              console.debug("The time is", moment().format('h:mm:ss a'));
             });
 
             // Control light
