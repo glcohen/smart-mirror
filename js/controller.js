@@ -450,18 +450,18 @@
             }); */
 
             addCommand('time_show', function(task) {
-              var currentTime = new Date()
-              var hours = currentTime.getHours()
-              var minutes = currentTime.getMinutes()
-              var t = "The time is "
+              var currentTime = new Date();
+              var hours = currentTime.getHours();
+              var minutes = currentTime.getMinutes();
+              var t = "The time is ";
               if (minutes < 10){
-                minutes = "0" + minutes
+                minutes = "0" + minutes;
               }
               t += hours + ":" + minutes + " "
-              if (hours > 11){
-                t += "PM"
+              if (hours > 11) {
+                t += "PM";
               } else {
-                t += "AM"
+                t += "AM";
               }​
               var msg = new SpeechSynthesisUtterance(t);
               window.speechSynthesis.speak(msg);
