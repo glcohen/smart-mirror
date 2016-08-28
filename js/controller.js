@@ -449,20 +449,24 @@
                  console.debug("It is", moment().format('h:mm:ss a'));
             }); */
 
-            addCommand('time_show', function(task) {
+            var t = function() {
               var currentTime = new Date();
               var hours = currentTime.getHours();
               var minutes = currentTime.getMinutes();
               var t = "The time is ";
-              if (minutes < 10){
+              if (minutes < 10) {
                 minutes = "0" + minutes;
               }
-              t += hours + ":" + minutes + " "
+              t += hours + ":" + minutes + " ";
               if (hours > 11) {
                 t += "PM";
               } else {
                 t += "AM";
               }​
+              return t;
+            }
+            
+            addCommand('time_show', function(task) {
               var msg = new SpeechSynthesisUtterance(t);
               window.speechSynthesis.speak(msg);
               console.debug("The time is", moment().format('h:mm:ss a'));
