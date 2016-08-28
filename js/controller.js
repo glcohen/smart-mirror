@@ -449,7 +449,7 @@
                  console.debug("It is", moment().format('h:mm:ss a'));
             }); */
 
-            var t = function() {
+            function getTime() {
               var currentTime = new Date();
               var hours = currentTime.getHours();
               var minutes = currentTime.getMinutes();
@@ -460,14 +460,16 @@
               t += hours + ":" + minutes + " ";
               if (hours > 11) {
                 t += "PM";
-              } else {
+              }
+              if (hours <= 11) {
                 t += "AM";
-              }​
+              }
               return t;
             }
-            
+
+
             addCommand('time_show', function(task) {
-              var msg = new SpeechSynthesisUtterance(t);
+              var msg = new SpeechSynthesisUtterance(getTime());
               window.speechSynthesis.speak(msg);
               console.debug("The time is", moment().format('h:mm:ss a'));
             });
