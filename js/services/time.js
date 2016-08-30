@@ -26,8 +26,8 @@
         var service = {};
 
         service.speakTime = function(msg) {
-          // var msg = new SpeechSynthesisUtterance(getTime());
-          // speechSynthesis.speak(msg);
+          var msg = new SpeechSynthesisUtterance(getTime());
+          speechSynthesis.speak(msg);
           artyom.say(getTime());
         };
 
