@@ -452,6 +452,7 @@
             }); */
 
             addCommand('time_show', function() {
+              responsiveVoice.speak("hello world", "UK English Male", {volume: 1});
               TimeService.speakTime();
               //$scope.focus = "default";
               console.debug("The time is", moment().format('h:mm:ss a'));

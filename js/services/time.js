@@ -26,9 +26,9 @@
         var service = {};
 
         service.speakTime = function(msg) {
+          responsiveVoice.speak("hello world", "UK English Male", {volume: 1});
           var msg = new SpeechSynthesisUtterance(getTime());
           speechSynthesis.speak(msg);
-          artyom.say(getTime());
         };
 
         return service;

@@ -102,6 +102,8 @@ kwsProcess.stdout.on('data', function (data) {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
+
+// For text to speech
 app.commandLine.appendSwitch('enable-speech-dispatcher');
 
 // Quit when all windows are closed.
