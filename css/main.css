@@ -188,7 +188,7 @@ ul.calendar {
 }
 
 .weather {
-    margin-left: auto;
+    margin-left: 75px;
     display: inline-block;
     text-align: right;
     width: 230px;
