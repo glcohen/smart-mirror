@@ -104,7 +104,7 @@ kwsProcess.stdout.on('data', function (data) {
 app.on('ready', createWindow)
 
 // For text to speech
-app.commandLine.appendSwitch('enable-speech-dispatcher');
+//app.commandLine.appendSwitch('enable-speech-dispatcher');
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {

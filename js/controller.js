@@ -452,29 +452,8 @@
             }); */
 
             addCommand('time_show', function() {
-              var utterance = new window.SpeechSynthesisUtterance();
-utterance.lang = 'en-US'; //translates on the fly - soooo awesome (japanese is the funniest)
-utterance.volume = 1.0;
-utterance.rate = 1.0;
-utterance.pitch = 1.0;
-utterance.voice = 'Hysterical'; // this seems to do nothing
-utterance.text = "Facebook news feeds are full of garbage";
-
-//Speak the phrase
-window.speechSynthesis.speak(utterance);
-
-window.speechSynthesis.onvoiceschanged = function () {
-  var speechSynthesisVoices = speechSynthesis.getVoices();
-  var accents = _(speechSynthesisVoices).pluck('lang');
-  var voices = _(speechSynthesisVoices).pluck('voiceURI');
-  var names = _(speechSynthesisVoices).pluck('name');
-  console.log('names', names);
-  console.log('accents', _.uniq(accents));
-  console.log('voices', voices);
-};
-              // responsiveVoice.speak("hello world", "UK English Male", {volume: 1});
-              // TimeService.speakTime();
-              //$scope.focus = "default";
+              TimeService.speakTime();
+              $scope.focus = "default";
               console.debug("The time is", moment().format('h:mm:ss a'));
             });
 
