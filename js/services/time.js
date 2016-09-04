@@ -25,6 +25,9 @@
 
     function TimeService() {
         var service = {};
+
+        // For TTS using 'say' https://github.com/marak/say.js/
+        var say = require('say');
         service.speakTime = function(msg) {
           say.speak(getTime());
         };
