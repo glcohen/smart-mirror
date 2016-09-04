@@ -26,15 +26,10 @@
     function TimeService() {
         var service = {};
 
-        // For TTS using 'say' https://github.com/marak/say.js/
-        var say = require('say');
         service.speakTime = function(msg) {
-          say.speak('TEST TEST TEST', 'voice_kal_diphone', 0.5, function(err) {
-            if (err) {
-              return console.error(err);
-            }
-            console.log("\"" + getTime() + '\" has been spoken');
-          });
+          vocal("Testing 1 2 3 Testing One Two Three.. Is this thing on?");
+          console.log("\"" + getTime() + '\" has been spoken');
+        };
         return service;
     }
 
