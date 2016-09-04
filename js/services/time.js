@@ -34,9 +34,7 @@
               return console.error(err);
             }
             console.log("\"" + getTime() + '\" has been spoken');
-          }
-        });
-
+          });
         return service;
     }
 
