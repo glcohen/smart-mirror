@@ -29,7 +29,7 @@
         // For TTS using 'say' https://github.com/marak/say.js/
         var say = require('say');
         service.speakTime = function(msg) {
-          say.speak(getTime());
+          say.speak(getTime(), 'voice_kal_diphone', 0.5);
         };
         console.log("\"" + getTime() + '\" has been spoken');
         return service;
