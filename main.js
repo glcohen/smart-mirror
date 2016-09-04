@@ -14,6 +14,9 @@ powerSaveBlocker.start('prevent-display-sleep')
 // Launching the mirror in dev mode
 const DevelopmentMode = process.argv[2] == "dev";
 
+// For TTS using 'say' https://github.com/marak/say.js/
+const say = require('say')
+
 // Load the smart mirror config
 var config;
 try{

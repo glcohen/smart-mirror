@@ -19,16 +19,16 @@
       else { // hours <= 11
         t += hours + ":" + minutes + " " + "AM";
       }
-      
+
       return t;
     }
 
     function TimeService() {
         var service = {};
         service.speakTime = function(msg) {
-          var msg = new SpeechSynthesisUtterance(getTime());
-          speechSynthesis.speak(msg);
+          say.speak(getTime());
         };
+        console.log("\"" + getTime() + '\" has been spoken');
         return service;
     }
 
