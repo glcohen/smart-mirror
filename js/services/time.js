@@ -25,7 +25,6 @@
 
     function TimeService() {
         var service = {};
-        //var vocal = require("/vocal/lib/vocallib.js");
         service.speakTime = function(msg) {
           vocal("Testing 1 2 3 Testing One Two Three.. Is this thing on?");
           console.log("\"" + getTime() + '\" has been spoken');
