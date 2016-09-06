@@ -40,7 +40,9 @@
         utterance.text = "I'm a working voice, oh shit!";
 
         //Speak the phrase
-        window.speechSynthesis.speak(utterance);
+        service.speakTime = function() {
+          window.speechSynthesis.speak(utterance);
+        };
 
         window.speechSynthesis.onvoiceschanged = function () {
           var speechSynthesisVoices = speechSynthesis.getVoices();
