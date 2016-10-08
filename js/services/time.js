@@ -1,6 +1,7 @@
   (function() {
     'use strict';
 
+    // Gets time in 12-hour format
     function getTime() {
       var currentTime = new Date();
       var hours = currentTime.getHours();
@@ -14,9 +15,7 @@
           hours = hours - 12;
         }
         t += hours + ":" + minutes + " " + "PM";
-      }
-
-      else { // hours <= 11
+      } else { // hours <= 11
         t += hours + ":" + minutes + " " + "AM";
       }
 
@@ -24,18 +23,14 @@
     }
 
 
-    function TimeService(vocal) {
-        console.log("At least I'm here");
-        var service = {};
-        var vocal = require(__dirname + "/node_modules/vocal/lib/vocal.js");
-        service.speakTime = function(msg) {
-          vocal("The time is" + getTime());
-          console.log("\"" + getTime() + '\" has been spoken');
+    function TimeService() {
+        var service = {}; // blank service
+        var vocal = require(__dirname + "/node_modules/vocal/lib/vocal.js"); // use vocal
+        service.speakTime = function(msg) { // actual do it
+          vocal(getTime(), function(){/* do nothing */); // call method to generate voice command
+          console.log("\"" + getTime() + '\" has been spoken'); // log it!
         };
-
-        // var msg = new SpeechSynthesisUtterance(getTime());
-        // speechSynthesis.speak(msg);
-        return service;
+        return service; // donezo
     }
 
     angular.module('SmartMirror')
