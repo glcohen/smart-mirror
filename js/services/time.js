@@ -24,11 +24,11 @@
     }
 
 
-    function TimeService() {
+    function TimeService(vocal) {
         var service = {};
         //var vocal = require(__dirname + "/node_modules/vocal/lib/vocal.js");
         service.speakTime = function(msg) {
-          vocal("Testing 1 2 3 Testing One Two Three.. Is this thing on?");
+          vocal("The time is" + getTime());
           console.log("\"" + getTime() + '\" has been spoken');
         };
 
