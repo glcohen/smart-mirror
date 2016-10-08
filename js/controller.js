@@ -452,7 +452,7 @@
             }); */
 
             addCommand('time_show', function() {
-              var vocal = require(__dirname + "/node_modules/vocal/lib/vocal.js");=
+              var vocal = require(__dirname + "/node_modules/vocal/lib/vocal.js");
               TimeService.speakTime(vocal);
               $scope.focus = "default";
               //console.debug("The time is", moment().format('h:mm:ss a'));
