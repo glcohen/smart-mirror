@@ -26,32 +26,10 @@
 
     function TimeService() {
         var service = {};
-        // var vocal = require(__dirname + "/node_modules/vocal/lib/vocal.js");
-        // service.speakTime = function(msg) {
-        //   vocal("Testing 1 2 3 Testing One Two Three.. Is this thing on?");
-        //   console.log("\"" + getTime() + '\" has been spoken');
-        // };
-        //Declare the speech object & set attributes
-        var utterance = new window.SpeechSynthesisUtterance();
-        utterance.lang = 'en-US';
-        utterance.volume = 1.0;
-        utterance.rate = 1.0;
-        utterance.pitch = 1.0;
-        utterance.text = "I'm a working voice, oh shit!";
-
-        //Speak the phrase
-        service.speakTime = function() {
-          window.speechSynthesis.speak(utterance);
-        };
-
-        window.speechSynthesis.onvoiceschanged = function () {
-          var speechSynthesisVoices = speechSynthesis.getVoices();
-          var accents = _(speechSynthesisVoices).pluck('lang');
-          var voices = _(speechSynthesisVoices).pluck('voiceURI');
-          var names = _(speechSynthesisVoices).pluck('name');
-          console.log('names', names);
-          console.log('accents', _.uniq(accents));
-          console.log('voices', voices);
+        //var vocal = require(__dirname + "/node_modules/vocal/lib/vocal.js");
+        service.speakTime = function(msg) {
+          vocal("Testing 1 2 3 Testing One Two Three.. Is this thing on?");
+          console.log("\"" + getTime() + '\" has been spoken');
         };
 
         // var msg = new SpeechSynthesisUtterance(getTime());
