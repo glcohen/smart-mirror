@@ -451,10 +451,10 @@
                  console.debug("It is", moment().format('h:mm:ss a'));
             }); */
 
+            // Speak the time
             addCommand('time_show', function() {
               TimeService.speakTime();
               $scope.focus = "default";
-              //console.debug("The time is", moment().format('h:mm:ss a'));
             });
 
             // Control light
