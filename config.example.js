@@ -5,6 +5,8 @@ var config = {
     
     // Keyword Spotting (Hotword Detection)
     speech : {
+        projectId: 'streaming-speech-sample',
+        keyFilename: './keyfile.json',
         keyword : "Smart Mirror",
         model : "smart_mirror.pmdl", // The name of your model
         sensitivity : 0.5, // Keyword getting too many false positives or not detecting? Change this.
@@ -78,7 +80,7 @@ var config = {
     },
     // Giphy
     giphy: {
-      key : "" // Your Gliphy API key
+      key : "dc6zaTOxFJmzC" // Your Gliphy API key
     },
     // YouTube
     youtube: {
