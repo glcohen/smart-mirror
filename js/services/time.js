@@ -27,7 +27,8 @@
         var service = {}; // blank service
         var say = require('say');
         service.speakTime = function(msg) { // actual do it
-          say.speak(getTime(), 'Good News', 1.0, function(err) {
+          say.speak(getTime(), 'Alex');
+          say.speak(getTime(), 'Alex', 1.0, function(err) {
             if (err) {
               return console.error(err);
             }
