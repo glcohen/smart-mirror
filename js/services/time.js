@@ -25,9 +25,9 @@
 
     function TimeService() {
         var service = {}; // blank service
-        var vocal = require(__dirname + "/node_modules/vocal/lib/vocal.js"); // use vocal
+        //var vocal = require(__dirname + "/node_modules/vocal/lib/vocal.js"); // use vocal
         service.speakTime = function(msg) { // actual do it
-          vocal(getTime(), function(){/* do nothing */}); // call method to generate voice command
+          //vocal(getTime(), function(){/* do nothing */}); // call method to generate voice command
           console.log("\"" + getTime() + '\" has been spoken'); // log it!
         };
         return service; // donezo
