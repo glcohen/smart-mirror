@@ -27,13 +27,7 @@
         var service = {}; // blank service
         var say = require('say');
         service.speakTime = function(msg) { // actual do it
-          say.speak(getTime());
-          say.speak(getTime(), function(err) {
-            if (err) {
-              return console.error(err);
-            }
-            console.log("\"" + getTime() + '\" has been spoken'); // log it!
-          });
+          say.speak(getTime(), 'voice_kal_diphone', 0.5);
         };
         return service; // donezo
     }
