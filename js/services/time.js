@@ -6,28 +6,28 @@
       var currentTime = new Date();
       var hours = currentTime.getHours();
       var minutes = currentTime.getMinutes();
-      var t = "The time is ";
+      var time = "The time is ";
       if (minutes < 10) {
         minutes = "0" + minutes;
       }
-      if (hours > 11) {
+      else if (hours > 11) {
         if (hours != 12) {
           hours = hours - 12;
         }
-        t += hours + ":" + minutes + " " + "PM";
+        time += hours + ":" + minutes + " " + "PM";
       } else { // hours <= 11
-        t += hours + ":" + minutes + " " + "AM";
+        time += hours + ":" + minutes + " " + "AM";
       }
-
-      return t;
+      return time;
     }
 
 
     function TimeService() {
-        var service = {}; // blank service
+        var service = {};
         var say = require('say');
-        service.speakTime = function(msg) { // actual do it
-          say.speak(getTime(), 'voice_kal_diphone', 0.5);
+        service.speakTime = function(msg) {
+          say.speak(getTime());
+          // say.speak(getTime(), 'voice_kal_diphone', 0.5); // Change parameters to use a different voice or change the speed
         };
         return service; // donezo
     }

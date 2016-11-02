@@ -14,8 +14,6 @@ powerSaveBlocker.start('prevent-display-sleep')
 // Launching the mirror in dev mode
 const DevelopmentMode = process.argv[2] == "dev";
 
-//const vocal = require(__dirname + "/node_modules/vocal/lib/vocal.js");
-
 // Load the smart mirror config
 var config;
 try{

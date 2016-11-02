@@ -470,15 +470,10 @@
                 $scope.focus = "reminders";
             });
 
-            // Check the time
-            /* addCommand('time_show', function(task) {
-                 console.debug("It is", moment().format('h:mm:ss a'));
-            }); */
-
             // Speak the time
             addCommand('time_show', function() {
-              TimeService.speakTime();
-              $scope.focus = "default";
+              TimeService.speakTime(); // do the speaking
+              $scope.focus = "default"; // show the clock
             });
 
             // Control light
