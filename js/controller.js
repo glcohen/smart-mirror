@@ -21,6 +21,7 @@
             RssService,
             StockService,
             ScrobblerService,
+            TVShowService,
             $rootScope, $scope, $timeout, $interval, tmhDynamicLocale, $translate) {
 
         // Local Scope Vars
@@ -209,7 +210,7 @@
                     var nextIndex = Math.floor(Math.random() * config.greeting[greetingTime].length);
                     var nextGreeting = config.greeting[greetingTime][nextIndex]
                     $scope.greeting = nextGreeting;
-                }else if(Array.isArray(config.greeting)){
+                } else if(Array.isArray(config.greeting)) {
                     $scope.greeting = config.greeting[Math.floor(Math.random() * config.greeting.length)];
                 }
             };
@@ -556,6 +557,31 @@
                 $scope.focus = "timer";
               }
             });
+
+            var refreshTVShows = function () {
+                console.log ("Refreshing TV Shows");
+                $scope.news = null;
+                TVShowService.refreshTVShowsList().then(function() {
+                  $scope.news = TVShowService.getShows();
+                });
+
+            };
+
+            var updateTVShows = function() {
+                $scope.news = TVShowService.getShows();
+            };
+
+            // Track TV shows
+            if (typeof config.tvshows !== 'undefined'){
+                registerRefreshInterval(refreshTVShows, config.tvshows.refreshInterval || 30);
+                registerRefreshInterval(updateTVShows, 2);
+            }
+
+            refreshTVShows();
+            $interval(refreshTVShows, config.tvshows.refreshInterval * 60000);
+
+            updateTVShows();
+            $interval(updateTVShows, config.tvshows.refreshInterval * 60000);
         };
 
         _this.init();
