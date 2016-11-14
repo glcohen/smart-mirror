@@ -567,46 +567,9 @@
 
             };
 
-            var updateTVShows = function() {
-                $scope.tvshows = TVShowService.getTVShows();
-            };
-
             if (typeof config.tvshows !== 'undefined'){
-                registerRefreshInterval(refreshTVShows, 30);
-                registerRefreshInterval(updateTVShows, 2);
+                registerRefreshInterval(refreshTVShows, 1440); // update once a day
             }
-
-            // var getTVShows = function() {
-            //     var result = TVShowService.getTVShows();
-            //     console.log("RES IS: " + result);
-            //     console.log("RES LEN: " + result.data.episode.show.title);
-            //     // for (var i = 0; i < result.length; i++) {
-            //     //     console.log("Episode title: " + response[i].data.episode.show.title);
-            //     //     console.log("Next air date: " + response[i].data.episode.release_date);
-            //     //     shows.push(result[i]);
-            //     // }
-            //     $scope.tvshows = result;
-            // }
-            //
-            // if (typeof config.tvshows !== 'undefined' && config.tvshows.shows.length) {
-            //   registerRefreshInterval(getTVShows, 30);
-            // }
-
-            // // get next air date for all tvshows
-            // var getTVShows = function() {
-            //   TVShowService.getTVShows().then(function(result) {
-            //     var shows = [];
-            //     console.log("RESULT IS: " + result);
-            //     shows.push(result);
-            //     $scope.tvshows = shows;
-            //   }, function(error) {
-            //     console.log(error);
-            //   });
-            // }
-            //
-            // if (typeof config.tvshows !== 'undefined' && config.tvshows.shows.length) {
-            //   registerRefreshInterval(getTVShows, 30);
-            // }
         };
 
         _this.init();
