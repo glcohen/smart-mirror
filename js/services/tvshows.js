@@ -18,7 +18,6 @@
       promises.push($http.get('http://epguides.frecar.no/show/' + show.replace(/\s|\./g, '') + '/next/')
         .catch(function() {
           console.log("No response for show: " + show);
-          return "";
         }));
       });
 
