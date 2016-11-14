@@ -9,20 +9,29 @@
       var promises = [];
       service.shows = [];
 
+      // angular.forEach(config.tvshows.shows, function(show) {
+      //     console.log("SHOW IS: " + show);
+      //     promises.push($http.get('http://epguides.frecar.no/show/' + show.replace(/\s|\./g, '') + '/next/'));
+      // });
+
       angular.forEach(config.tvshows.shows, function(show) {
-          console.log("SHOW IS: " + show);
-          promises.push($http.get('http://epguides.frecar.no/show/' + show.replace(/\s|\./g, '') + '/next/'));
+      promises.push($http.get('http://epguides.frecar.no/show/' + show.replace(/\s|\./g, '') + '/next/')
+        .catch(function() {
+          console.log("No response for show: " + show);
+          return "";
+        }));
       });
 
       return $q.all(promises).then(function(response) {
         console.log("Here with this many responses: " + response.length);
             for (var i = 0; i < response.length; i++) {
+                if (response[i].data != undefined) {
+                  service.shows.push(response[i]);
+                }
                 //console.log("Episode title: " + response[i].data.episode.show.title);
                 //console.log("Next air date: " + response[i].data.episode.release_date);
-                service.shows.push(response[i]);
             }
       });
-      //return service;
     };
 
     service.refreshTVShows = function() {

@@ -104,22 +104,25 @@
             <span ng-init="iconLoad('icon_weather_'+forecast.counter, forecast.iconAnimation)"></span>
           </div>
         </div>
+        <div class="padding"></div>
         <div class="traffic" ng-repeat="traffic in trips">
           <div ng-show="!traffic.error" class="traffic-information">
             <span class="time-to" ng-bind="'traffic.time_to' | translate:traffic"></span>
             <span ng-bind="traffic.duration.humanize()"></span>
           </div>
         </div>
+        <div class="padding"></div>
         <div class="stock">
           <div class="stock-information" ng-repeat="quote in stock">
             <span><i class="fa fa-rss fade" style="margin-right: 5px";></i></span>
             <span fade ng-bind="quote.Name"></span>: $<span fade ng-bind="quote.LastTradePriceOnly  | number : 3"></span><span ng-bind="quote.Change"></span>
           </div>
         </div>
+        <div class="padding"></div>
         <div class="tvshows">
-          <div class="tv-information" ng-repeat="show in tvshows">
+          <div class="tv-information time-to" ng-repeat="show in tvshows">
             <span><i class="fa fa-rss fade" style="margin-right: 5px";></i></span>
-            <span fade>Show: <span ng-bind="show.data.episode.show.title"></span>, Next Air Date: <span ng-bind="show.data.episode.release_date"></span></span>
+            <span fade><span style="font-weight: bold" ng-bind="show.data.episode.show.title"></span> – <span ng-bind="show.data.episode.release_date"></span></span>
           </div>
         </div>
       </div>

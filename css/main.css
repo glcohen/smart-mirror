@@ -269,6 +269,10 @@ ul.calendar {
     margin-right: 10px;
 }
 
+.padding {
+  padding-bottom: 20px;
+}
+
 .time-to {
     font-weight: bold;
 }

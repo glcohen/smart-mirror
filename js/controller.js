@@ -571,7 +571,7 @@
                 $scope.tvshows = TVShowService.getTVShows();
             };
 
-            if(typeof config.tvshows !== 'undefined'){
+            if (typeof config.tvshows !== 'undefined'){
                 registerRefreshInterval(refreshTVShows, 30);
                 registerRefreshInterval(updateTVShows, 2);
             }
