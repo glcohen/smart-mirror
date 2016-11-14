@@ -291,7 +291,7 @@
                 });
             }
 
-            if(typeof config.lastfm !== 'undefined' && typeof config.lastfm.key !== 'undefined' && config.lastfm.user !== 'undefined'){
+            if (typeof config.lastfm !== 'undefined' && typeof config.lastfm.key !== 'undefined' && config.lastfm.user !== 'undefined'){
                 registerRefreshInterval(getScrobblingTrack, config.lastfm.refreshInterval || 0.6)
             }
 
@@ -559,29 +559,54 @@
             });
 
             var refreshTVShows = function () {
-                console.log ("Refreshing TV Shows");
-                $scope.news = null;
-                TVShowService.refreshTVShowsList().then(function() {
-                  $scope.news = TVShowService.getShows();
+                console.log ("Refreshing TVShows");
+                $scope.tvshows = null;
+                TVShowService.refreshTVShows().then(function() {
+                  $scope.tvshows = TVShowService.getTVShows();
                 });
 
             };
 
             var updateTVShows = function() {
-                $scope.news = TVShowService.getShows();
+                $scope.tvshows = TVShowService.getTVShows();
             };
 
-            // Track TV shows
-            if (typeof config.tvshows !== 'undefined'){
-                registerRefreshInterval(refreshTVShows, config.tvshows.refreshInterval || 30);
+            if(typeof config.tvshows !== 'undefined'){
+                registerRefreshInterval(refreshTVShows, 30);
                 registerRefreshInterval(updateTVShows, 2);
             }
 
-            refreshTVShows();
-            $interval(refreshTVShows, config.tvshows.refreshInterval * 60000);
+            // var getTVShows = function() {
+            //     var result = TVShowService.getTVShows();
+            //     console.log("RES IS: " + result);
+            //     console.log("RES LEN: " + result.data.episode.show.title);
+            //     // for (var i = 0; i < result.length; i++) {
+            //     //     console.log("Episode title: " + response[i].data.episode.show.title);
+            //     //     console.log("Next air date: " + response[i].data.episode.release_date);
+            //     //     shows.push(result[i]);
+            //     // }
+            //     $scope.tvshows = result;
+            // }
+            //
+            // if (typeof config.tvshows !== 'undefined' && config.tvshows.shows.length) {
+            //   registerRefreshInterval(getTVShows, 30);
+            // }
 
-            updateTVShows();
-            $interval(updateTVShows, config.tvshows.refreshInterval * 60000);
+            // // get next air date for all tvshows
+            // var getTVShows = function() {
+            //   TVShowService.getTVShows().then(function(result) {
+            //     var shows = [];
+            //     console.log("RESULT IS: " + result);
+            //     shows.push(result);
+            //     $scope.tvshows = shows;
+            //   }, function(error) {
+            //     console.log(error);
+            //   });
+            // }
+            //
+            // if (typeof config.tvshows !== 'undefined' && config.tvshows.shows.length) {
+            //   registerRefreshInterval(getTVShows, 30);
+            // }
         };
 
         _this.init();

@@ -116,6 +116,12 @@
             <span fade ng-bind="quote.Name"></span>: $<span fade ng-bind="quote.LastTradePriceOnly  | number : 3"></span><span ng-bind="quote.Change"></span>
           </div>
         </div>
+        <div class="tvshows">
+          <div class="tv-information" ng-repeat="show in tvshows">
+            <span><i class="fa fa-rss fade" style="margin-right: 5px";></i></span>
+            <span fade>Show: <span ng-bind="show.data.episode.show.title"></span>, Next Air Date: <span ng-bind="show.data.episode.release_date"></span></span>
+          </div>
+        </div>
       </div>
     </div>
     <div class="container" ng-class="(listening == true)?'listening':'not-listening'">
