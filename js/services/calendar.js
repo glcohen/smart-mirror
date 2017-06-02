@@ -102,15 +102,15 @@
           //If the type is an end date, do the same as above
           else if (type.startsWith('DTEND')) {
             cur_event.end = makeDate(type, val);
-            
+
             // Subtract one second so that single-day events endon the same day
             cur_event.endName = makeDate(type, val).subtract(1, 'seconds').calendar().toUpperCase();
           }
-          
+
           if (cur_event.startName && cur_event.endName) {
             cur_event.label = cur_event.startName + " - " + cur_event.endName;
           }
-          
+
           //Convert timestamp
           else if (type == 'DTSTAMP') {
             //val = makeDate(type, val);

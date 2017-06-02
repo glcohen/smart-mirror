@@ -473,7 +473,8 @@
 
             // Speak the time
             addCommand('time_show', function() {
-              TimeService.speakTime(); // do the speaking
+              var timeFormat = config.time; // 12 or 24
+              TimeService.speakTime(timeFormat); // do the speaking
               $scope.focus = "default"; // show the clock
             });
 
@@ -568,7 +569,7 @@
             };
 
             if (typeof config.tvshows !== 'undefined'){
-                registerRefreshInterval(refreshTVShows, 1440); // update once a day
+                registerRefreshInterval(refreshTVShows, config.tvshows.refreshInterval);
             }
         };
 

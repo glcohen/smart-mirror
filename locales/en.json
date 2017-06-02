@@ -141,8 +141,8 @@
             "description": "Display the reminders list."
         },
         "time_show": {
-            "text": "what time is it",
-            "voice": "what time is it",
+            "text": "What time is it",
+            "voice": "What time is it",
             "description": "Shows the current time."
         },
         "timer_start": {
